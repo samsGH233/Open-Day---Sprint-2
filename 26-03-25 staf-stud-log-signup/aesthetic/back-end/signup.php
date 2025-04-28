@@ -47,7 +47,7 @@ $stmt->bind_param("sss", $_POST["name"], $_POST["email"], $password_hash);
 
 if ($stmt->execute()) {
 
-    header("Location: signup-success.html");
+    header("Location: profile-picture.php");
 
 } else {
     if ($mysqli->errno === 1062) {
