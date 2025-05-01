@@ -24,7 +24,7 @@ if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $targetFile)) {
     $stmt->execute();
 
      // Redirect to homepage after successful upload
-     header("Location: homepage.php");
+     header("Location: signup-success.html");
      exit;
  } else {
      echo "Error uploading file.";
