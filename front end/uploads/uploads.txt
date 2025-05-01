@@ -1,0 +1,1 @@
+Uploads folder to hold uploaded profile pictures from users.
