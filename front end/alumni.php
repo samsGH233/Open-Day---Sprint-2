@@ -11,7 +11,7 @@
 
 <?php
 include "connecttodatabaseinfo.php";
-include "navBar.php";
+include "navbar.php";
 $mysqli = connectToDatabase();  // Database connection
 
 // Fetch data from the database

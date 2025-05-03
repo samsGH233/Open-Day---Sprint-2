@@ -54,9 +54,9 @@
     <div class="container" >
     <div class="row text-center fs-2" style="margin-top: 100px; gap: 15px;">
         
-        <a href="https://mi-linux.wlv.ac.uk/~2351103/alumni.php"><button type="button" class="col-md btn-primary mb-3 ">ALUMNI</button></a>
-        <a href="https://mi-linux.wlv.ac.uk/~2351103/tips.php"><button type="button" class="col-md btn-secondary mb-3 ">TIPS</button></a>
-        <a href="https://mi-linux.wlv.ac.uk/~2351103/feedbackpage.php"><button type="button" class="col-md btn-success mb-3 ">FEEDBACK</button></a>
+        <a href="https://mi-linux.wlv.ac.uk/~2351031/alumni.php"><button type="button" class="col-md btn-primary mb-3 ">ALUMNI</button></a>
+        <a href="https://mi-linux.wlv.ac.uk/~2351031/tips.php"><button type="button" class="col-md btn-secondary mb-3 ">TIPS</button></a>
+        <a href="https://mi-linux.wlv.ac.uk/~2351031/feedbackpage.php"><button type="button" class="col-md btn-success mb-3 ">FEEDBACK</button></a>
         </div>
     </div>
 </section>

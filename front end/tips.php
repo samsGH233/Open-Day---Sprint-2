@@ -11,7 +11,7 @@
 
 <?php
 include "connecttodatabaseinfo.php";
-include "navBar.php";
+include "navbar.php";
 $mysqli = connectToDatabase();  // Database connection
 
 // Fetch tips from the database

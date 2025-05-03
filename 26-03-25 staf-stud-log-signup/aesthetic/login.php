@@ -56,9 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     <!-- This makes sure the user receives a message if the user has invalid credentials. -->
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
+
+
+
+    
 
 
     <div class = "input-box">
@@ -66,6 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <header>Attendees: Login</header>
         </div>
         <form method="post">
+
+            <?php if ($is_invalid): ?>
+
+                <div class="error-message">
+                    <em>Invalid login</em>
+                </div>
+
+            <?php endif; ?>
 
             <div class = "input-box">
                 <input type = "text" class = "input-field" placeholder = "Email" name = "email" id = "email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" autocomplete = "off" required>

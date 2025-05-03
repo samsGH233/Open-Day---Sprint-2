@@ -37,7 +37,7 @@ if (isset($_SESSION["user_id"])) { // check for user id in the session
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3">
     
     <div class="container">
-        <a href="https://mi-linux.wlv.ac.uk/~2351103/homepage.php" class="navbar-brand">Open Day</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2351031/homepage.php" class="navbar-brand">Open Day</a>
 
         <button 
         class="navbar-toggler" 
@@ -60,9 +60,9 @@ if (isset($_SESSION["user_id"])) { // check for user id in the session
                 <?php else: ?>
                     <i class="fa-solid fa-user"></i>
                 <?php endif; ?>
-                <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351103/homepage.php" class="nav-link" style="color: black;">HOME</a></li>
-                <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351103/courses.php" class="nav-link">COURSES</a></li>
-                <li class="nav-item"><a a href="https://mi-linux.wlv.ac.uk/~2351103/timetable.php" class="nav-link">TIMETABLE</a></li>
+                <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351031/homepage.php" class="nav-link" style="color: black;">HOME</a></li>
+                <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351031/courses.php" class="nav-link">COURSES</a></li>
+                <li class="nav-item"><a a href="https://mi-linux.wlv.ac.uk/~2351031/timetable.php" class="nav-link">TIMETABLE</a></li>
                 <li class="nav-item"><a a class="nav-link" href="logout.php" style="color: black;">Log out</a></li>
             </ul>
             

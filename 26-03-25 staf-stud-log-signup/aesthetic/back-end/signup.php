@@ -53,6 +53,10 @@ $stmt->bind_param("ssss", $_POST["name"], $_POST["email"], $password_hash, $defa
 
 if ($stmt->execute()) {
 
+    session_start();
+
+    $_SESSION["user_id"] = $mysqli->insert_id;
+    
     header("Location: profile-picture.php");
 
     exit;
