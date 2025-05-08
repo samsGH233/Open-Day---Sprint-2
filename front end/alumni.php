@@ -26,7 +26,7 @@ $result = $mysqli->query($sql);
     <div class="row">
     <?php
     if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) 
+        while ($row = $result->fetch_assoc()) {
             echo '<div class="col-md-4 mb-4">';
             echo '<div class="card text-center">';
             echo '<img src="' . $row['image'] . '" class="card-img-top" alt="Alumni Image" style="height: 450px; object-fit: cover;">';
@@ -35,7 +35,8 @@ $result = $mysqli->query($sql);
             echo '<p class="card-text"><strong>Degree:</strong> ' . $row['Degree'] . '</p>';
             echo '</div>'; 
             echo '</div>'; 
-            echo '</div>'; 
+            echo '</div>';
+        } 
         } else {
         echo '<p class="text-center">No alumni found.</p>';
     }

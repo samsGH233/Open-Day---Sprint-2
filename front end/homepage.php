@@ -69,6 +69,21 @@
   <area shape="circle" coords="400,200,60" href="building-info.php?building=wulfruna" alt="Wulfruna Building">
 </map>
 
+
+<!-- Directions Section Implemented in Homepage -->
+
+<div style="text-align: center;">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1g0zn1xMtnvfWsHsTk5M0x1VI_Hv2bXw&ehbc=2E312F" width="640" height="480"></iframe>
+</div>
+
+
+
+
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous">

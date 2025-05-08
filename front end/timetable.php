@@ -25,7 +25,7 @@
     <h2 class="text-center">Your Timetable</h2>
     <table class="table table-striped">
         <thead>
-            
+            <tr>
                 <th>Course Name</th>
                 <th>Time</th>
                 <th>Room</th>
@@ -92,7 +92,7 @@
 
 
     } else {
-        document.body.innerHTML += "<p style="margin-left:10px;">No timetable data available. </p>";
+        document.body.innerHTML += "<p style='margin-left:10px;'>No timetable data available. </p>";
     }
 }
 
