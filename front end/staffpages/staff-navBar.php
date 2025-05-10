@@ -55,7 +55,7 @@ if (isset($_SESSION["user_id"])) { // check for user id in the session
                 <li class="nav-item"><a class="nav-link" style="color: black;">Hello <?= htmlspecialchars($user["name"]) ?></a></li>
                 <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351031/staff-homepage.php" class="nav-link">HOME</a></li>
                 <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351031/add-event.php" class="nav-link">EVENT</a></li>
-                <li class="nav-item"><a class="nav-link">ATTENDANCE</a></li>
+                <li class="nav-item"><a href="https://mi-linux.wlv.ac.uk/~2351031/view_attendance.php" class="nav-link">ATTENDANCE</a></li>
                 <li class="nav-item"><a href="logout2.php" style="color: black;" class="nav-link">Log out</a></li>
             </ul>
             

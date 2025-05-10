@@ -49,7 +49,7 @@
 
 -->
 
-
+<!--
 <section class="p-5">
     <div class="container" >
     <div class="row text-center fs-2" style="margin-top: 100px; gap: 15px;">
@@ -60,7 +60,70 @@
         </div>
     </div>
 </section>
+!-->
 
+<!--  Boxes -->
+  
+<section class="p-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md">
+                <div class="card bg-primary text-light">
+                    <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="title mb-3">
+                            ALUMNI
+                        </h3>
+                        <p class="card-text">
+                            Discover inspiring stories from past students, see where they are now, and learn how university shaped their careers.
+                        </p>
+                        <a href="https://mi-linux.wlv.ac.uk/~2351031/alumni.php" class="btn btn-dark">Visit Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+            <div class="col-md">
+                <div class="card bg-warning text-light">
+                    <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="title mb-3">
+                            TIPS
+                        </h3>
+                        <p class="card-text">
+                        Get practical advice on how to plan your visit, what to ask staff, and how to make the most of your Open Day experience.
+                        </p>
+                        <a href="https://mi-linux.wlv.ac.uk/~2351031/tips.php" class="btn btn-dark">Visit Page</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md">
+            <div class="col-md">
+                <div class="card bg-success text-light">
+                    <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                        <i class="fa-solid fa-comment"></i>
+                        </div>
+                        <h3 class="title mb-3">
+                            FEEDBACK
+                        </h3>
+                        <p class="card-text">
+                            Share how you felt your Open Day experience was, bring any ideas to help in elevating and improving future open days.
+                        </p>     
+                        <a href="https://mi-linux.wlv.ac.uk/~2351031/feedbackpage.php" class="btn btn-dark">Visit Page</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </div>
+        </div>
+            </div>
+ </section>
 
 
 <img src="campus-map.jpg" usemap="#map" class="img-fluid">
