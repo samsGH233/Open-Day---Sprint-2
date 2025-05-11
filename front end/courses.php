@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,29 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <?php
+    
+    //STEP 1: Include the relevant PHP files
+    include "navbar.php";
+    include "connecttodatabaseinfo.php";
 
-
-include "connecttodatabaseinfo.php"; // connect to database file
-include "navbar.php";  // navigation bar file
-
-
-if (isset($_GET['searchBox'])) { // retrieves value of serachBox param from the URL
-// the isset function checks if the parameter exists in the URL to prevent errors 
-
-//  stores retreived value into session variable called courses_searchBox
-
-    $_SESSION['courses_searchBox'] = $_GET['searchBox'];
-}
-
-// assgins value of courses_searchBox to the variable $searchBox
-//if $_SESSION['courses_searchBox'] is not set, it assigns an empty string instead
-// '??' is the null coalescing operator, which checks if the left-hand value is set and not null
-// if it is not set, the right hand value is used instead
-$searchBox = $_SESSION['courses_searchBox'] ?? '';
-
+    
+    //STEP 2: Ensure that the search box is functional
+    if (isset($_GET['searchBox'])) { 
+            
+        $_SESSION['courses_searchBox'] = $_GET['searchBox'];
+        }
+        
+        $searchBox = $_SESSION['courses_searchBox'] ?? '';
+        
 ?>
-
+    
 <h1 class="text-center my-4">Courses</h1>
 
 <div class="container">
@@ -40,37 +34,28 @@ $searchBox = $_SESSION['courses_searchBox'] ?? '';
         <button class="btn btn-success ms-2" type="submit">Search</button>
     </form>
 </div>
+
 <br>
 
 <div class="container">
     <div class="table-responsive">
-    
-    <?php
-    $mysqli = connectToDatabase(); // whaterver is returned from the connectToDatabase() function is stored in this variable
-                                  // This variable is then used for executing database queries
 
-    $sql = "SELECT * FROM app_events LIMIT 25";  // extracting data from the 'app_events' table
-    
-    
-    // dynamically builds and SQL query to search for courses based on user input.
-    if ($searchBox) { // this checks if $searchbox contains a value
-        // appends to existing SQL query
-        // checks for values in Course column that contain the $searchBox value
+     
+    <?php
+    $mysqli = connectToDatabase(); 
+    $sql = "SELECT * FROM app_events LIMIT 25";  
+    if ($searchBox) { 
         $sql .= " WHERE Course LIKE '%" . $mysqli->real_escape_string($searchBox) . "%'";
     }
 
 
 
-    // $result variable stores the query result
-    $result = $mysqli->query($sql); // SQL query is executed using $mysqli object
     
-    // ensures tha the query execution was successful
-    // $result->num_rows > 0 -> checks that at least one row was returned
-    // num_rows is a property of MySQLi that tells how many rows were returned
+    $result = $mysqli->query($sql); 
     if ($result && $result->num_rows > 0): ?>
        
-       <!-- Headers of the columns in the table -->
-       <table class="table table-striped"> 
+     
+       <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Course Name</th>
@@ -84,18 +69,10 @@ $searchBox = $_SESSION['courses_searchBox'] ?? '';
 
 
             <tbody>
+
             <?php while ($event = $result->fetch_assoc()): ?>
-            <!-- $result is an MySQL  query object from a database query
-            - Method 'fetch_assoc() retrieves the next row from the result as an associative array
-            - If there are no more rows, fetch_assoc retruns false
-            - The while loop above will continue as long as the fetch_assoc() method returns a valid row i.e. true
-            - The fetched row is assigned to the variable $event
-               
-               
-            -->
-               
-               
-               
+          
+                <!-- Displaying data from each column in each row in the db table -->
                 <tr>
                     <td><?= $event['Course']?></td>
                     <td><?= $event['Information'] ?></td>
@@ -103,19 +80,14 @@ $searchBox = $_SESSION['courses_searchBox'] ?? '';
                     <td><?= $event['Room_Number'] ?></td>
                     <td>
                         <button class="btn btn-primary add-to-timetable" data-event='<?= json_encode($event) ?>'>Add</button>
-                        <!-- json_encode($event) ; converts PHP variable into a JSON string -->
-                        <!-- The JSON-encoded string is stored inside the data-event attribute -->
-                        <!-- The Course, Information, Time, and Room_Number data is stored inside of the data-event attribute --> 
-                    
                     </td>
                 </tr>
 
             <?php endwhile; ?>
-
             </tbody>
 
-        </table>
 
+        </table>
     <?php else: ?>
         <p class="text-center">No events found in the database.</p>
     <?php endif;
@@ -124,49 +96,72 @@ $searchBox = $_SESSION['courses_searchBox'] ?? '';
     </div>
 </div>
 
+<div id="notification"></div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-let timetable = JSON.parse(localStorage.getItem("timetable")) || [];
-document.querySelectorAll('.add-to-timetable').forEach(button => {
-    button.addEventListener('click', function () {
-        const event = JSON.parse(this.getAttribute('data-event'));
-        timetable.push(event);
-        localStorage.setItem("timetable", JSON.stringify(timetable));
-        alert(`${event.Course} added to your timetable.`);
-        displayTimetable();
-    });
-});
 
-function displayTimetable() {
-    const timetableContent = document.getElementById('timetableContent');
-    timetableContent.innerHTML = "";
-    if (timetable.length > 0) {
-        timetable.forEach((event, index) => {
-            timetableContent.innerHTML += `
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h5 class="card-title">${event.Information}</h5>
-                        <p><strong>Course:</strong> ${event.Course}</p>
-                        <p><strong>Time:</strong> ${event.Time}</p>
-                        <p><strong>Room:</strong> ${event.Room_Number}</p>
-                        <button class="btn btn-danger" onclick="removeFromTimetable(${index})">Remove</button>
-                    </div>
-                </div>`;
-        });
+  
+    let timetable = [];
+
+try {
+    const storedTimetable = localStorage.getItem("timetable");
+    if (storedTimetable) {
+        timetable = JSON.parse(storedTimetable);
+    }
+
+
+} catch (error) {
+    console.error("Error parsing timetable data from localStorage", error);
+}
+
+function renderTimetable() {
+    const timetableContainer = document.getElementById('timetable'); // Make sure this element exists
+    timetableContainer.innerHTML = ''; // Clear the current timetable
+
+    if (timetable.length === 0) {
+        timetableContainer.innerHTML = '<p>Your timetable is empty.</p>';
     } else {
-        timetableContent.innerHTML = "<p>No events added to your timetable.</p>";
+        const list = document.createElement('ul');
+        timetable.forEach(event => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${event.Course} at ${event.Time}`;
+            list.appendChild(listItem);
+        });
+        timetableContainer.appendChild(list);
     }
 }
 
-function removeFromTimetable(index) {
-    timetable.splice(index, 1);
-    displayTimetable();
-}
 
-const timetableModal = new bootstrap.Modal(document.getElementById('timetableModal'));
-document.getElementById('timetableModal').addEventListener('shown.bs.modal', displayTimetable);
+// Call renderTimetable when the page loads to display existing data
+document.addEventListener('DOMContentLoaded', renderTimetable);
+
+document.querySelectorAll('.add-to-timetable').forEach(button => {
+    button.addEventListener('click', function () {
+        try {
+            const event = JSON.parse(this.getAttribute('data-event'));
+            let timetable = JSON.parse(localStorage.getItem("timetable")) || [];
+
+            if (!timetable.some(e => e.Course === event.Course)) {
+                timetable.push(event);
+                localStorage.setItem("timetable", JSON.stringify(timetable));
+                alert(`${event.Course} added to your timetable.`);
+            } else {
+                alert(`${event.Course} is already in your timetable.`);
+            }
+        } catch (error) {
+            console.error("Error adding event to localStorage", error);
+            alert("There was an error adding the event.");
+        }
+    });
+});
+
+
+
+
 </script>
+
+
+
+   
 </body>
-</html>
+</html> 
