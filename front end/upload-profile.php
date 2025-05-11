@@ -1,5 +1,5 @@
 <?php
-session_start();  //strarts the session
+session_start();  //starts the session
 
 if (!isset($_SESSION["user_id"])) { //this checks if the user is logged in (if user_id is set)
     header("Location: login.php"); // if not, they are redirected back to the login page
@@ -24,7 +24,7 @@ if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $targetFile)) {
     $stmt->execute();
 
      // Redirect to homepage after successful upload
-     header("Location: signup-success.html");
+     header("Location: homepage.php");
      exit;
  } else {
      echo "Error uploading file.";
