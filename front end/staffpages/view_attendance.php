@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Attendance Records</title>
+    <title>Open Day | Attendance Records</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <?php
-include "connecttodatabaseinfo.php"; // make sure this connects to your MySQL DB
-include "staff-navBar.php";
+include "connecttodatabaseinfo.php"; 
 
 $mysqli = connectToDatabase();
 $sql = "
@@ -37,7 +36,7 @@ $result = $mysqli->query($sql);
                         <thead class="table-dark">
                 <tr>
                     <th>Attendance ID</th>
-                    <th>User ID</th>
+                    <th>Name</th>
                     <th>Attended</th>
                     <th>Event Name</th>
                 </tr>
