@@ -11,7 +11,7 @@
 
 <?php
 include "connecttodatabaseinfo.php";
-include "navBar.php";
+include "navbar.php";
 $mysqli = connectToDatabase();  // Database connection
 
 // Fetch data from the database
@@ -26,16 +26,17 @@ $result = $mysqli->query($sql);
     <div class="row">
     <?php
     if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) 
+        while ($row = $result->fetch_assoc()) {
             echo '<div class="col-md-4 mb-4">';
             echo '<div class="card text-center">';
-            echo '<img src="' . $row['image'] . '" class="card-img-top" alt="Alumni Image" style="height: 450px; object-fit: cover;">';
+            echo '<img src="' . $row['Image_URL'] . '" class="card-img-top" alt="Alumni Image" style="height: 450px; object-fit: cover;">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['Name'] . '</h5>';
             echo '<p class="card-text"><strong>Degree:</strong> ' . $row['Degree'] . '</p>';
             echo '</div>'; 
             echo '</div>'; 
-            echo '</div>'; 
+            echo '</div>';
+        } 
         } else {
         echo '<p class="text-center">No alumni found.</p>';
     }

@@ -1,9 +1,5 @@
 <?php
 
-// Here is code for the conditions the user must meet in order for
-// the attendees to create their account
-
-
 if (empty($_POST["name"])) {
     die("Name is required");
 }
@@ -28,14 +24,11 @@ if ($_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords must match");
 }
 
-// password hash converts the users password in to a hash to implement
-// security procedures
-
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO signup (name, email, password_hash, profile_image) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO Signup_staff (name, email, password_hash) VALUES (?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
 
@@ -43,24 +36,12 @@ if ( ! $stmt->prepare($sql)) {
     die("SQL error: " . $mysqli->error);
 }
 
-// changes made : placeholder image V
-
-$default_profile_image = "default.jpg";
-
-// changes made : now includes profile image in bind param V
-
-$stmt->bind_param("ssss", $_POST["name"], $_POST["email"], $password_hash, $default_profile_image);
+$stmt->bind_param("sss", $_POST["name"], $_POST["email"], $password_hash);
 
 if ($stmt->execute()) {
 
-    session_start();
+    header("Location: signup-success2.html");
 
-    $_SESSION["user_id"] = $mysqli->insert_id;
-    
-    header("Location: profile-picture.php");
-
-    exit;
-    
 } else {
     if ($mysqli->errno === 1062) {
         die("email already taken");

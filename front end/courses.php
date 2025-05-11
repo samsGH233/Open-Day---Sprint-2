@@ -128,11 +128,12 @@ $searchBox = $_SESSION['courses_searchBox'] ?? '';
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-let timetable = [];
+let timetable = JSON.parse(localStorage.getItem("timetable")) || [];
 document.querySelectorAll('.add-to-timetable').forEach(button => {
     button.addEventListener('click', function () {
         const event = JSON.parse(this.getAttribute('data-event'));
         timetable.push(event);
+        localStorage.setItem("timetable", JSON.stringify(timetable));
         alert(`${event.Course} added to your timetable.`);
         displayTimetable();
     });

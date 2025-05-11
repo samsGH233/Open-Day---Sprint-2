@@ -27,7 +27,7 @@ body {
   }
   
   /* Add padding to container elements */
-  .container {
+  form .container {
     display: flex;
     align-items: center;      /* Centers vertically */
     min-height: 100vh;        

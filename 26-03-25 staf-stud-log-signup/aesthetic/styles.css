@@ -20,6 +20,7 @@ body {
 .login-box {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 440px;
     height: 480px;
@@ -117,4 +118,17 @@ section a{
 .sign-up-link a{
     color:black;
     font-weight: 600;
+}
+
+/* Error message position. */
+
+.error-message {
+    height: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }

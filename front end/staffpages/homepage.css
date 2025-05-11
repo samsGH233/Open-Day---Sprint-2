@@ -1,0 +1,44 @@
+
+body {
+    font-family: Arial, sans-serif;
+    /*margin: 20px;*/
+    background: #f4f4f4;
+}
+
+.homepage-content {
+    max-width: 900px;
+    /*margin: auto;*/
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-content h1 {
+    text-align: center;
+    color: #333;
+}
+
+.homepage-content .course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.homepage-content .course-card {
+    background: #c6c6c6;
+    color: #000000;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-content .course-card h2 {
+    margin-top: 0;
+    color: #000000;
+}
+
+.homepage-content p {
+    margin: 5px 0;
+}
