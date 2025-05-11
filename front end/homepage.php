@@ -128,15 +128,7 @@
  </section>
 
 
-         
-
-<!--
-<img src="campus-map.jpg" usemap="#map" class="img-fluid">
-<map name="map">
-  <area shape="rect" coords="34,44,270,350" href="building-info.php?building=harrison" alt="Harrison Building">
-  <area shape="circle" coords="400,200,60" href="building-info.php?building=wulfruna" alt="Wulfruna Building">
-</map>
--->
+  <!-- Everything above is Samson's contribution to the homepage for the MMP -->
 
 <!-- Directions Section Implemented in Homepage -->
 
