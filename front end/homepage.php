@@ -136,7 +136,7 @@
   <area shape="rect" coords="34,44,270,350" href="building-info.php?building=harrison" alt="Harrison Building">
   <area shape="circle" coords="400,200,60" href="building-info.php?building=wulfruna" alt="Wulfruna Building">
 </map>
-
+-->
 
 <!-- Directions Section Implemented in Homepage -->
 
@@ -156,7 +156,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous">
 </script>
-            -->
+           
 
 
 
